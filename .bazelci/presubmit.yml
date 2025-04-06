@@ -30,9 +30,6 @@ tasks:
     - "--test_tag_filters=-nomacos"
     test_targets:
     - "..."
-    - "-//internal/e2e/override_repository:override_repository_test"
-    - "-//internal/e2e/many_dirs:many_dirs"
-    - "-//internal/e2e/symlink_dir:symlink_dir_test"
   macos_legacy_watcher:
     platform: macos
     build_flags:

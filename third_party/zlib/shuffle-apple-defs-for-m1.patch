@@ -1,0 +1,24 @@
+--- zlib/zutil.h	2016-12-31 23:37:10
++++ zlib/zutil.h	2025-04-04 10:21:59
+@@ -130,7 +130,9 @@
+ #  endif
+ #endif
+ 
+-#if defined(MACOS) || defined(TARGET_OS_MAC)
++#ifdef __APPLE__
++#  define OS_CODE 19
++#elif defined(MACOS) || defined(TARGET_OS_MAC)
+ #  define OS_CODE  7
+ #  ifndef Z_SOLO
+ #    if defined(__MWERKS__) && __dest_os != __be_os && __dest_os != __win32_os
+@@ -159,10 +161,6 @@
+ #  define OS_CODE 18
+ #endif
+ 
+-#ifdef __APPLE__
+-#  define OS_CODE 19
+-#endif
+-
+ #if defined(_BEOS_) || defined(RISCOS)
+ #  define fdopen(fd,mode) NULL /* No fdopen() */
+ #endif
